@@ -52,7 +52,7 @@ const PaymentForm = () => {
           }
         >
           {/* Form data visualization */}
-          <div className={'flex items-center justify-center'}>
+          <div className={'hidden sm:flex sm:items-center sm:justify-center'}>
             <CreditCard
               num={values.cardNum}
               name={values.cardName}
@@ -61,6 +61,9 @@ const PaymentForm = () => {
               cvv={values.cardCvv}
             />
           </div>
+            <div className={'sm:hidden bg-gray-100 border shadow-sm p-8 font-medium text-center rounded-md text-gray-700 text-sm'}>
+                Please open me in a window at least 640 pixels wide to view the interactive card 💕
+            </div>
 
           {/* Form fields */}
           <div className={'grid gap-4 sm:grid-cols-2'}>
@@ -122,8 +125,8 @@ const PaymentForm = () => {
                 <select
                   className={
                     touched.cardExpMonth && errors.cardExpMonth
-                      ? 'errorBorder'
-                      : ''
+                      ? 'errorBorder w-full'
+                      : 'w-full'
                   }
                   name={'cardExpMonth'}
                   value={values.cardExpMonth}
@@ -146,8 +149,8 @@ const PaymentForm = () => {
                 <select
                   className={
                     touched.cardExpYear && errors.cardExpYear
-                      ? 'errorBorder'
-                      : ''
+                      ? 'errorBorder w-full'
+                      : 'w-full'
                   }
                   name={'cardExpYear'}
                   value={values.cardExpYear}
